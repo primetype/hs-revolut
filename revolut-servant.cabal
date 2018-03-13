@@ -1,0 +1,63 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 92fc27429b0de4ff6243dec61b3c20abd56711412a2ae808874f4ff3ca7e18a0
+
+name:           revolut-servant
+version:        0.1
+synopsis:       Revolut Business API
+maintainer:     Nicolas Di Prima <nicolas@primetype.co.uk>
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+library
+  hs-source-dirs:
+      src
+  default-extensions: NoImplicitPrelude GeneralizedNewtypeDeriving TypeFamilies DataKinds TypeOperators ScopedTypeVariables OverloadedStrings
+  ghc-options: -Wall -Werror
+  build-depends:
+      aeson
+    , base
+    , basement
+    , foundation
+    , hourglass
+    , http-api-data
+    , http-client
+    , http-client-tls
+    , memory
+    , servant
+    , servant-client
+    , servant-client-core
+    , text
+    , unordered-containers
+  exposed-modules:
+      Revolut.V1
+  other-modules:
+      Revolut.V1.Client
+      Revolut.V1.Types
+      Revolut.V1.GetAccounts
+      Revolut.V1.GetTransactions
+  default-language: Haskell2010
+
+executable revolut
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  default-extensions: NoImplicitPrelude GeneralizedNewtypeDeriving TypeFamilies DataKinds TypeOperators ScopedTypeVariables OverloadedStrings
+  ghc-options: -Wall -Werror
+  build-depends:
+      aeson
+    , base
+    , basement
+    , foundation
+    , hourglass
+    , memory
+    , revolut-servant
+    , servant-client
+    , unordered-containers
+  other-modules:
+      Paths_revolut_servant
+  default-language: Haskell2010

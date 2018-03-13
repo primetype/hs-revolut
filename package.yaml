@@ -1,0 +1,54 @@
+name:       "revolut-servant"
+version:    "0.1"
+synopsis:   "Revolut Business API"
+maintainer: "Nicolas Di Prima <nicolas@primetype.co.uk>"
+license:    "BSD3"
+
+ghc-options:
+  - "-Wall"
+  - "-Werror"
+
+dependencies:
+  - base
+  - basement
+  - foundation
+  - memory
+  - aeson
+  - unordered-containers
+  - hourglass
+  - servant-client
+
+default-extensions:
+  - NoImplicitPrelude
+  - GeneralizedNewtypeDeriving
+  - TypeFamilies
+  - DataKinds
+  - TypeOperators
+  - ScopedTypeVariables
+  - OverloadedStrings
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Revolut.V1
+  other-modules:
+    - Revolut.V1.Client
+    - Revolut.V1.Types
+    - Revolut.V1.GetAccounts
+    - Revolut.V1.GetTransactions
+  dependencies:
+    - servant
+    - servant-client-core
+    - text
+    - http-api-data
+    - http-client
+    - http-client-tls
+
+executables:
+  revolut:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+      - revolut-servant
+      - base
+      - servant-client
