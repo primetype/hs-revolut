@@ -13,10 +13,7 @@ dependencies:
   - basement
   - foundation
   - memory
-  - aeson
-  - unordered-containers
   - hourglass
-  - servant-client
 
 default-extensions:
   - NoImplicitPrelude
@@ -38,8 +35,10 @@ library:
     - Revolut.V1.GetTransactions
   dependencies:
     - servant
+    - servant-client
     - servant-client-core
     - text
+    - aeson
     - http-api-data
     - http-client
     - http-client-tls
@@ -49,6 +48,6 @@ executables:
     main: Main.hs
     source-dirs: app
     dependencies:
-      - revolut-servant
       - base
-      - servant-client
+      - revolut-servant
+      - cli

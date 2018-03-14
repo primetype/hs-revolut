@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 92fc27429b0de4ff6243dec61b3c20abd56711412a2ae808874f4ff3ca7e18a0
+-- hash: 7f1733b15003242b25aaf423f793d2459e746a7b29441e0ee49755c6de71589e
 
 name:           revolut-servant
 version:        0.1
@@ -32,7 +32,6 @@ library
     , servant-client
     , servant-client-core
     , text
-    , unordered-containers
   exposed-modules:
       Revolut.V1
   other-modules:
@@ -49,15 +48,13 @@ executable revolut
   default-extensions: NoImplicitPrelude GeneralizedNewtypeDeriving TypeFamilies DataKinds TypeOperators ScopedTypeVariables OverloadedStrings
   ghc-options: -Wall -Werror
   build-depends:
-      aeson
-    , base
+      base
     , basement
+    , cli
     , foundation
     , hourglass
     , memory
     , revolut-servant
-    , servant-client
-    , unordered-containers
   other-modules:
       Paths_revolut_servant
   default-language: Haskell2010
