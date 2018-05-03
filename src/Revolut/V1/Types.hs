@@ -125,6 +125,7 @@ data TransactionState
     | TxCompleted
     | TxDeclined
     | TxFailed
+    | TxReverted
   deriving (Eq, Ord, Show, Typeable, Enum, Bounded)
 instance FromJSON TransactionState where
     parseJSON = withText "TransactionState" $ \t -> case t of
@@ -132,6 +133,7 @@ instance FromJSON TransactionState where
         "completed" -> pure TxCompleted
         "declined" -> pure TxDeclined
         "failed" -> pure TxFailed
+        "reverted" -> pure TxReverted
         _ -> fail (unpack t)
 
 data Currency = GBP | EUR | USD
